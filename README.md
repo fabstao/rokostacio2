@@ -1,12 +1,12 @@
-# rokostacio2 project
+# Rokostacio2 project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This is the port of Rokostacio (NodeJS based) to Java with Quarkus
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Status
 
-## Running the application in dev mode
+Pre-alpha stage
 
-You can run your application in dev mode that enables live coding using:
+Run in dev mode (enables live coding using):
 ```
 ./mvnw quarkus:dev
 ```
