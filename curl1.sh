@@ -1,6 +1,6 @@
 #!/bin/bash
 
-payload='{"id":null,"nombre":"Caifanes","representante":"Sabo Romo","email":"nohay@gmail.com","direccion":"Calle num","codigo_postal":53100,"telefono":"+525554047930","rider":{"backline":"Amplis, bataca","microfonos":"AKG y Shure","otros":"Catering"}}'
+payload='{"id":null,"nombre":"Megadeth","representante":"Vic Rattlehead","email":"nohay@gmail.com","direccion":"Calle num","codigo_postal":53100,"telefono":"+1800344344","rider":{"backline":"Amplis, bataca","microfonos":"AKG y Shure","otros":"Catering"}}'
 
 echo "__________________________________________________________"
 echo

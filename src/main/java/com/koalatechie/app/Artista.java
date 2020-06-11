@@ -1,5 +1,7 @@
 package com.koalatechie.app;
 
+import java.util.Date;
+
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
 
 public class Artista extends PanacheMongoEntity {
@@ -9,6 +11,7 @@ public class Artista extends PanacheMongoEntity {
 	public String direccion;
 	public int codigo_postal;
 	public String telefono;
+	public Date fecha=new Date();
 	public static class Rider {
 		public String backline;
 		public String microfonos;
