@@ -10,7 +10,7 @@ public class AdminResource {
 
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public String hello() {
+    public String index() {
         return "<h1>ADMIN Site</h1><h3>In construction...</h3>";
     }
 }
