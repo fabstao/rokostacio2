@@ -1,11 +1,6 @@
 ## Stage 1 : build with maven builder image with native capabilities
 FROM quay.io/quarkus/centos-quarkus-maven:19.3.1-java11 AS build
-#FROM quay.io/quarkus/centos-quarkus-maven:latest AS build
 COPY pom.xml /project/pom.xml
-ADD pom.xml /project/pom.xml
-RUN echo "hola" > /project/test
-RUN ls /project
-RUN cat /project/test
 RUN mvn -f /project/pom.xml -B de.qaware.maven:go-offline-maven-plugin:1.2.5:resolve-dependencies
 COPY src /project/src
 USER root
