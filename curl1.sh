@@ -2,6 +2,11 @@
 
 payload='{"id":null,"nombre":"Megadeth","representante":"Vic Rattlehead","email":"nohay@gmail.com","direccion":"Calle num","codigo_postal":53100,"telefono":"+1800344344","rider":{"backline":"Amplis, bataca","microfonos":"AKG y Shure","otros":"Catering"}}'
 
+PORT=8080
+if [ "$1" != "" ]; then
+	PORT=$1
+fi
+
 echo "__________________________________________________________"
 echo
 echo "Probando REST POST"
@@ -10,7 +15,7 @@ echo "Data:"
 echo
 echo $payload
 
-url="http://localhost:8080/artista"
+url="http://localhost:$PORT/artista"
 
 echo
 echo "POST:"

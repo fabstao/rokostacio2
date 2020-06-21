@@ -11,6 +11,13 @@ RUN mvn -X -f /project/pom.xml -Pnative clean package
 
 ## Stage 2 : create the docker final image
 FROM registry.access.redhat.com/ubi8/ubi-minimal
+
+ENV MONGOPORT 27017
+ENV QUARKUS_HTTP_PORT 8080
+ENV QUARKUS_HTTP_TESTPORT 8189
+ENV QUARKUS_MONGODB_HOSTS 127.0.0.1:$MONGOPORT
+ENV QUARKUS_MONGODB_DATABASE rokostaging
+
 WORKDIR /work/
 COPY --from=build /project/target/*-runner /work/application
 
@@ -20,7 +27,8 @@ RUN chmod 775 /work /work/application \
   && chmod -R "g+rwX" /work \
   && chown -R 1001:root /work
 
-EXPOSE 8080
+EXPOSE $QUARKUS_HTTP_PORT
+EXPOSE $QUARKUS_HTTP_TESTPORT
 USER 1001
 
-CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
+CMD ["sh","-c","./application","-Dquarkus.http.port=$QUARKUS_HTTP_PORT", "-Dquarkus.http.test-port=$QUARKUS_HTTP_TESTPORT", "-Dquarkus.http.host=0.0.0.0","-Dquarkus.mongodb.hosts=$QUARKUS_MONGODB_HOSTS","-Dquarkus.mongodb.database=$QUARKUS_MONGODB_DATABASE"]
